@@ -72,7 +72,7 @@ public class Spotify {
 	        }
 	        
 	        // delete a track from a play list
-	        Response remove = RestAssured.given()
+	    /*    Response remove = RestAssured.given()
 	                .header("Authorization", Token)
 	                .pathParam("playlist_id", plid2)
 	                .body("{\"uris\": [\"" + tracks[1] + "\"]}")
@@ -88,7 +88,18 @@ public class Spotify {
 	                .body("{\"uris\": [\"" + tracks[1] + "\"]}")
 	                .when()
 	                .post("https://api.spotify.com/v1/playlists/{playlist_id}/tracks");
-	        add.prettyPrint();
+	        add.prettyPrint(); */
+	        
+	        
+	        Response replace = RestAssured.given()
+	                .accept("application/json")
+	                .contentType("application/json")
+	                .header("Authorization", Token)
+	                .pathParam("playlist_id", plid1)
+	                .body("{\"name\": \" International \",\"description\": \"New playlist description\",\"public\": true}")
+	                .when()
+	                .put("https://api.spotify.com/v1/playlists/{playlist_id}");
+	        response.then().assertThat().statusCode(200);
 
 		}
 	
