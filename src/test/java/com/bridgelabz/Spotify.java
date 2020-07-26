@@ -71,16 +71,25 @@ public class Spotify {
 	            System.out.println("Track uri=" + track);
 	        }
 	        
-	        
+	        // delete a track from a play list
 	        Response remove = RestAssured.given()
 	                .header("Authorization", Token)
 	                .pathParam("playlist_id", plid2)
 	                .body("{\"uris\": [\"" + tracks[1] + "\"]}")
 	                .when()
 	                .delete("https://api.spotify.com/v1/playlists/{playlist_id}/tracks");
-	        remove.prettyPrint();
+	        remove.prettyPrint(); 
 
 	        
+	        //add a track in playlist 
+	        Response add = RestAssured.given()
+	                .header("Authorization", Token)
+	                .pathParam("playlist_id", plid1)
+	                .body("{\"uris\": [\"" + tracks[1] + "\"]}")
+	                .when()
+	                .post("https://api.spotify.com/v1/playlists/{playlist_id}/tracks");
+	        add.prettyPrint();
+
 		}
 	
 }
