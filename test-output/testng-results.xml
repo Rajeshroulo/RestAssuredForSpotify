@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="6248" started-at="2020-07-26T10:06:51 IST" finished-at="2020-07-26T10:06:58 IST">
+  <suite name="Default suite" duration-ms="4768" started-at="2020-07-26T10:47:52 IST" finished-at="2020-07-26T10:47:57 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="6248" started-at="2020-07-26T10:06:51 IST" finished-at="2020-07-26T10:06:58 IST">
+    <test name="Default test" duration-ms="4768" started-at="2020-07-26T10:47:52 IST" finished-at="2020-07-26T10:47:57 IST">
       <class name="Spotify">
-        <test-method status="PASS" signature="setup()[pri:0, instance:Spotify@6321e813]" name="setup" is-config="true" duration-ms="6" started-at="2020-07-26T10:06:51 IST" finished-at="2020-07-26T10:06:51 IST">
+        <test-method status="PASS" signature="setup()[pri:0, instance:Spotify@6321e813]" name="setup" is-config="true" duration-ms="12" started-at="2020-07-26T10:47:52 IST" finished-at="2020-07-26T10:47:52 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="togetuserid()[pri:0, instance:Spotify@6321e813]" name="togetuserid" duration-ms="6191" started-at="2020-07-26T10:06:51 IST" finished-at="2020-07-26T10:06:58 IST">
+        <test-method status="PASS" signature="togetuserid()[pri:0, instance:Spotify@6321e813]" name="togetuserid" duration-ms="4682" started-at="2020-07-26T10:47:52 IST" finished-at="2020-07-26T10:47:57 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- togetuserid -->

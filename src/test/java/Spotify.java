@@ -1,4 +1,5 @@
 import org.testng.annotations.BeforeMethod;
+
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
@@ -23,6 +24,8 @@ public class Spotify {
 				.get("https://api.spotify.com/v1/me");
 		 userid = response.path("id");
 	        System.out.println("userId=" + userid);
+	        System.out.println(response.getBody().asString());
+	        
 	
 		}
 	
