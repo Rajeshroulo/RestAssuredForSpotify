@@ -17,8 +17,8 @@ public class Spotify {
     @BeforeMethod
     public void setup() {
     	
-    	Token = "Bearer BQASWuR4ObuhCtAsVCiXt6CwzNIxMMVTVSH6s2BtoGlOIfunY0jtr84DT3UJ4Wjaq8iK21kh59pv2JEC0C1Ac_3HVlB1fD4iVXyM80FYMKLnmLCk3cuecydF82K4t3IGW_x_t9Lcq-qmvXKr5RGmwpua5_KyRJ4fQn6fE6weG0VfYcJfSskMh3LLi8HklUPn3fboN5Mn9oL7HFvnS23PKnXXEeAmDkB00js91ybVpW4XqwO-awBRBBUtGrSNCFIR9Cudht_RFSspyEd27VdOnVaXlslU51O4";
-    				     	}
+   Token = "Bearer BQBel82GfMLhqW2zmlI7fq_luMDnVurZpLSaSGBagLK1tcRS2L5ESX8uJGet2Ap-G7_RSA3xAO1jqjp406FEZscNrPovk7HReJmt7bSvpVpIj7_p83iaUlWb0v4ZgGlCupw8uC5lzOiWdf4aBFVrghywwGHmEs5K2SOIT7urP2DmNEJ4cRN2CtFivEwZz0zX8H2FZR_VYQ-sc9P-8H0BljHoa106ZxPw0lnQMg5rs4d_DO6T3uC5SXhHSI0Pv4qn-XOrtVlzb0yqPh12QaKHz05u0nUyQ5DM"; 
+   }
 	
 	@Test
   public void totesttheApisofspotifyAndcheckresponse () {
@@ -56,7 +56,7 @@ public class Spotify {
 	        System.out.println("2nd Playlist id is = " + plid2);
 	        System.out.println("3rd Playlist id is = " + plid3);
 
-
+	        // to get all the tracks in a play list
 	        Response items = RestAssured.given()
 	                .header("Authorization", Token)
 	                .pathParam("playlist_id", plid2)
@@ -70,6 +70,16 @@ public class Spotify {
 	        for (String track : tracks) {
 	            System.out.println("Track uri=" + track);
 	        }
+	        
+	        
+	        Response remove = RestAssured.given()
+	                .header("Authorization", Token)
+	                .pathParam("playlist_id", plid2)
+	                .body("{\"uris\": [\"" + tracks[1] + "\"]}")
+	                .when()
+	                .delete("https://api.spotify.com/v1/playlists/{playlist_id}/tracks");
+	        remove.prettyPrint();
+
 	        
 		}
 	
