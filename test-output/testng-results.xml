@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5620" started-at="2020-07-26T14:23:59 IST" finished-at="2020-07-26T14:24:05 IST">
+  <suite name="Default suite" duration-ms="5919" started-at="2020-07-26T15:26:16 IST" finished-at="2020-07-26T15:26:22 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5620" started-at="2020-07-26T14:23:59 IST" finished-at="2020-07-26T14:24:05 IST">
+    <test name="Default test" duration-ms="5919" started-at="2020-07-26T15:26:16 IST" finished-at="2020-07-26T15:26:22 IST">
       <class name="com.bridgelabz.Spotify">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.bridgelabz.Spotify@6321e813]" name="setup" is-config="true" duration-ms="14" started-at="2020-07-26T14:24:00 IST" finished-at="2020-07-26T14:24:00 IST">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.bridgelabz.Spotify@22a67b4]" name="setup" is-config="true" duration-ms="6" started-at="2020-07-26T15:26:16 IST" finished-at="2020-07-26T15:26:16 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="totesttheApisofspotifyAndcheckresponse()[pri:0, instance:com.bridgelabz.Spotify@6321e813]" name="totesttheApisofspotifyAndcheckresponse" duration-ms="5524" started-at="2020-07-26T14:24:00 IST" finished-at="2020-07-26T14:24:05 IST">
+        <test-method status="PASS" signature="totesttheApisofspotifyAndcheckresponse()[pri:0, instance:com.bridgelabz.Spotify@22a67b4]" name="totesttheApisofspotifyAndcheckresponse" duration-ms="5862" started-at="2020-07-26T15:26:16 IST" finished-at="2020-07-26T15:26:22 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- totesttheApisofspotifyAndcheckresponse -->

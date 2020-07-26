@@ -11,12 +11,13 @@ public class Spotify {
 	
 	String userid="";
     String Token ="";
+    String plid1,plid2,plid3;
     
     @BeforeMethod
     public void setup() {
     	
-    	Token = "Bearer BQA3JmrAk4l1yKQvfBeFeTJK7WESC2bYFTT-vboJccqMZWQKld9EcUCUdGvnJx9IlIfwnM1VdI71YTG2rmxAXsEKxPSTal97rpAD3gPmUEXGREztX5boVtIgd8Z7XKh0xgDQQ9wWprqByODNNNP76kIsqR8iq-aoTMBgK4aAyN7Sxgj4Oz_-8jVPYoYK3okYr8SwkbKzMJCqI3F5P7zhVn99SCquQn2pfh0xFWpdVZFSKWFhJCr07CX0hWUaC31MItLmyB-jT1P-7_FPVfCnsboLfcAV85PB ";
-    	}
+    	Token = "Bearer BQASWuR4ObuhCtAsVCiXt6CwzNIxMMVTVSH6s2BtoGlOIfunY0jtr84DT3UJ4Wjaq8iK21kh59pv2JEC0C1Ac_3HVlB1fD4iVXyM80FYMKLnmLCk3cuecydF82K4t3IGW_x_t9Lcq-qmvXKr5RGmwpua5_KyRJ4fQn6fE6weG0VfYcJfSskMh3LLi8HklUPn3fboN5Mn9oL7HFvnS23PKnXXEeAmDkB00js91ybVpW4XqwO-awBRBBUtGrSNCFIR9Cudht_RFSspyEd27VdOnVaXlslU51O4";
+    				     	}
 	
 	@Test
   public void totesttheApisofspotifyAndcheckresponse () {
@@ -28,14 +29,31 @@ public class Spotify {
 	        System.out.println("userId=" + userid);
 	        System.out.println(response.getBody().asString());
 	
-		Response playlist =  RestAssured.given()
+	/*	Response addplaylist =  RestAssured.given()
 				.accept("application/json")
                 .contentType("application/json")               
 				.header("Authorization", Token)
 				.body("{\"name\": \" Hollywood  \",\"description\": \"English songs\",\"public\": false}")
 				.pathParam("user_id",userid)
                 .when()
-                .post("https://api.spotify.com/v1/users/{user_id}/playlists");                	
+                .post("https://api.spotify.com/v1/users/{user_id}/playlists"); */
+		
+		
+		 Response list = RestAssured.given()
+	                .header("Authorization", Token)
+	                .pathParam("user_id", userid)
+	                .when()
+	                .get("https://api.spotify.com/v1/users/{user_id}/playlists");
+	        int count = list.path("total");
+	        System.out.println("total no.of playlists=" + count);
+	        plid1 = list.path("items[0].id");
+	        plid2 = list.path("items[1].id");
+	        plid3 = list.path("items[2].id");
+	        System.out.println("1st Playlist id is = " + plid1);
+	        System.out.println("2nd Playlist id is = " + plid2);
+	        System.out.println("3rd Playlist id is = " + plid3);
+
+
 	        
 		}
 	
