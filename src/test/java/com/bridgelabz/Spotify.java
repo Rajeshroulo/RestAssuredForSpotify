@@ -9,9 +9,10 @@ import io.restassured.response.Response;
 
 public class Spotify {
 	
-	String userid="";
-    String Token ="";
+	String userid;
+    String Token;
     String plid1,plid2,plid3;
+    public String[] tracks;
     
     @BeforeMethod
     public void setup() {
@@ -21,6 +22,7 @@ public class Spotify {
 	
 	@Test
   public void totesttheApisofspotifyAndcheckresponse () {
+		//to get user id and user profile
 		Response response =  RestAssured.given()
 				.header("Authorization", Token)
                 .when()
@@ -29,6 +31,7 @@ public class Spotify {
 	        System.out.println("userId=" + userid);
 	        System.out.println(response.getBody().asString());
 	
+	//to create a new playlist        
 	/*	Response addplaylist =  RestAssured.given()
 				.accept("application/json")
                 .contentType("application/json")               
@@ -38,7 +41,7 @@ public class Spotify {
                 .when()
                 .post("https://api.spotify.com/v1/users/{user_id}/playlists"); */
 		
-		
+		// to get total no of playlists and it's id
 		 Response list = RestAssured.given()
 	                .header("Authorization", Token)
 	                .pathParam("user_id", userid)
@@ -54,6 +57,19 @@ public class Spotify {
 	        System.out.println("3rd Playlist id is = " + plid3);
 
 
+	        Response items = RestAssured.given()
+	                .header("Authorization", Token)
+	                .pathParam("playlist_id", plid2)
+	                .when()
+	                .get("https://api.spotify.com/v1/playlists/{playlist_id}/tracks");
+	        int all = items.path("total");
+	        tracks = new String[all];
+	        for (int i = 0; i < tracks.length; i++) {
+	            tracks[i] = items.path("items[" + i + "].track.uri"); 
+	        }
+	        for (String track : tracks) {
+	            System.out.println("Track uri=" + track);
+	        }
 	        
 		}
 	
