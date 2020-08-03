@@ -6,7 +6,7 @@
       <class name="com.bridgelabz.Spotify">
         <methods>
           <include name="setup"/>
-          <include name="totesttheApisofspotifyAndcheckresponse"/>
+          <include name="togetTheUserProfileAndPlaylistDetails"/>
         </methods>
       </class> <!-- com.bridgelabz.Spotify -->
     </classes>
